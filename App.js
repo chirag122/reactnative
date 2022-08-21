@@ -7,7 +7,7 @@ import Colors from './constants/colors';
 import GameOverScreen from './screens/GameOverScreen';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-
+import { StatusBar } from 'expo-status-bar';
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
@@ -46,19 +46,22 @@ export default function App() {
   }
 
   return (
+  <>
+    <StatusBar style='inverted'/>
     <LinearGradient
       style={styles.rootScreen}
       colors={[Colors.primary700, Colors.accent500]}
-    >
+      >
       <ImageBackground
         source={require('./assets/images/background.png')}
         resizeMode="cover"
         imageStyle={styles.backgroundImage}
         style={styles.rootScreen}
-      >
+        >
         <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
+        </>
   );
 }
 
